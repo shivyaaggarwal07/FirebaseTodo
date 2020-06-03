@@ -1,0 +1,59 @@
+<html>
+    <head>
+        
+
+    </head>
+    <body>
+        
+        <pre id="user"></pre>
+        <ul id="list"></ul>
+        
+        
+        <script src="app.js"></script>
+<!--        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>-->
+        <script >
+            var firebaseConfig = {
+                apiKey: "AIzaSyBpqGPrsfpa1IjXUeWzVHEHvpjKNiEF8pQ",
+                authDomain: "todolist-sushi.firebaseapp.com",
+                databaseURL: "https://todolist-sushi.firebaseio.com/"
+                
+              };
+         
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            
+
+
+            var element = document.getElementById("user");
+            var database = firebase.database();
+            var firebaseRef = database.ref().child('rest/user');
+            var userRef = firebaseRef.child('hobbies');
+//            firebaseRef.once('value', snap => {
+//                element.innerText = JSON.stringify(snap.val().price,null,3);
+//            });  
+            var list = document.getElementById("list");
+             userRef.on('child_added', snap => {
+                 const li = document.createElement('li');
+                 li.innerText = snap.val();
+                 li.id = snap.key;
+                 list.appendChild(li);
+//                ele.innerText = JSON.stringify(snap.val(),null,3);
+            });  
+            
+            
+            userRef.on('child_changed', snap => {
+                 const liChanged = document.getElementById(snap.key);
+                 liChanged.innerText = snap.val();
+//                ele.innerText = JSON.stringify(snap.val(),null,3);
+            });  
+            
+            userRef.on('child_removed', snap => {
+                 const liRemoved = document.getElementById(snap.key);
+                 liRemoved.remove();
+//                ele.innerText = JSON.stringify(snap.val(),null,3);
+            }); 
+            
+            
+        </script> 
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>Todo app Firebase</title>
+    <link rel="icon" href="../../../../../Frontend-playground/Shivya/Task/public/img/todoicon.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"> </script>
+    <link rel="stylesheet" href="to-do.css" type="text/css">
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+    
+    <!-- <link href="https://console.firebase.google.com/project/todolist-sushi/database/todolist-sushi/data"> -->
+
+    </head>
+    window.onload= init;
+    <body onload="load(), create_unfinished_task(), create_finished_task()">
+    <!-- <script src="../../../../../deptjs/public/student-app/assets/js/app.js"></script> -->
+  <div id="content_creation">
+        <div id="finish_task_header">
+         <p>Todo List</p>    
+      </div>
+
+            <div id="task_input">
+            <input id="stuname" type="text" placeholder="Username">
+            <input id="inputbox" type="text" placeholder="Start A Task">
+            <input id="inputdate" type="date">
+            <button id="inputbutton" onclick="add_task();">Enter Task <i class="fas fa-arrow-circle-right"></i></button>
+            </div>
+            
+<!--            Task todo-->
+            <p class="header">Task</p>
+<!--            task container that contains task data and task tool in our data -->
+            <div class="container">
+            <!-- <div class="task_container">
+                <div id="task_data">
+                <p id="task_title" contenteditable="false">Task Title 1</p>
+                <p id="task_date" contenteditable="false">Task date 1</p>
+                </div>
+                <div id="task_tool">
+                <button id="task_done_btn" onclick="task_done();"><i class="fas fa-check"></i></button>
+                <button id="task_edit_btn" onclick="task_edit();"><i class="fas fa-pencil-alt"></i></button>
+                <button id="task_delete_btn" onclick="task_delete();"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                </div>
+                        <div class="task_container">
+                <div id="task_data">
+                <p id="task_title" contenteditable="false">Task Title 1</p>
+                <p id="task_date" contenteditable="false">Task date 1</p>
+                </div>
+                <div id="task_tool">
+                <button id="task_done_btn" onclick="task_done();"><i class="fas fa-check"></i></button>
+                <button id="task_edit_btn" onclick="task_edit();"><i class="fas fa-pencil-alt"></i></button>
+                <button id="task_delete_btn" onclick="task_delete();"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                </div>
+                        <div class="task_container">
+                <div id="task_data">
+                <p id="task_title" contenteditable="false">Task Title 1</p>
+                <p id="task_date" contenteditable="false">Task date 1</p>
+                </div>
+                <div id="task_tool">
+                <button id="task_done_btn" onclick="task_done();"><i class="fas fa-check"></i></button>
+                <button id="task_edit_btn" onclick="task_edit();"><i class="fas fa-pencil-alt"></i></button>
+                <button id="task_delete_btn" onclick="task_delete();"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                </div>
+ -->        </div>
+<!--            Task finished yayy!-->
+                        <p class="header">Finished</p>
+            <div class="container">
+            <!-- <div class="task_container">
+                <div id="task_data">
+                <p id="task_title" contenteditable="false">Task Title 1</p>
+                <p id="task_date" contenteditable="false">Task date 1</p>
+                </div>
+                </div>
+             <div class="task_container">
+                <div id="task_data">
+                <p id="task_title" contenteditable="false">Task Title 1</p>
+                <p id="task_date" contenteditable="false">Task date 1</p>
+                </div>
+            </div>
+             <div class="task_container">
+                <div id="task_data">
+                <p id="task_title" contenteditable="false">Task Title 1</p>
+                <p id="task_date" contenteditable="false">Task date 1</p>
+                </div>
+            </div>  -->          
+            </div>
+        </div>
+        <script>
+            // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAOrYXqInwvsRWcbZLKV_mW2r0tmyyHPIg",
+    authDomain: "mytodolist-1715c.firebaseapp.com",
+    databaseURL: "https://mytodolist-1715c.firebaseio.com",
+    projectId: "mytodolist-1715c",
+    storageBucket: "mytodolist-1715c.appspot.com",
+    messagingSenderId: "275114629427",
+    appId: "1:275114629427:web:d120fb1eebc1f16c5e4646",
+    measurementId: "G-BCV4GJK1T1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var ele = firebase.database();
+
+  // firebase.analytics();
+
+        </script>
+        
+            <script src="todofirebase.js">        </script>
+    </body>
+</html>
